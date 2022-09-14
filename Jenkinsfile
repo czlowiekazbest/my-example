@@ -10,5 +10,15 @@ pipeline {
                 echo "hello"
             }
         }
+        stage('Hello') {
+          when {
+            branch "fix-*"
+          }
+          steps {
+            sh '''
+               cat README.md
+            '''
+          }
+        }
     }
 }
